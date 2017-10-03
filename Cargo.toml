@@ -1,0 +1,10 @@
+[package]
+name = "shell-format"
+version = "0.1.0"
+authors = ["Andrew Hobden <andrew@hoverbear.org>"]
+description = "A simple command line bash text formatter."
+
+[dependencies]
+clap = "*"
+term = "*"
+error-chain = "*"
