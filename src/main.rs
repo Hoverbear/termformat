@@ -9,7 +9,9 @@ fn main() {
 
     configure(&args, &mut *terminal).unwrap();
 
-    write!(terminal, "{}", args.value_of("content").unwrap()).unwrap();
+    let content = args.value_of("content").unwrap();
+
+    write!(terminal, "{}", content).unwrap();
 
     terminal.reset().unwrap();
 }
