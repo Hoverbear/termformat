@@ -2,18 +2,26 @@
 extern crate term;
 #[macro_use] extern crate error_chain;
 
-fn main() {
+use std::io::{self, Read};
+
+quick_main!(handle);
+
+fn handle() -> Result<()> {
     let args = opts().get_matches();
+    let mut terminal = term::stdout().ok_or(ErrorKind::CouldNotOpenTerminal)?;
+    configure(&args, &mut *terminal)?;
     
-    let mut terminal = term::stdout().unwrap();
-
-    configure(&args, &mut *terminal).unwrap();
-
-    let content = args.value_of("content").unwrap();
-
-    write!(terminal, "{}", content).unwrap();
-
-    terminal.reset().unwrap();
+    let content = if let Some(content) = args.value_of("content") {
+        String::from(content)
+    } else {
+        let mut buffer = String::new();
+        io::stdin().read_to_string(&mut buffer)?;
+        buffer
+    };
+    
+    write!(terminal, "{}", content)?;
+    terminal.reset()?;
+    Ok(())
 }
 
 fn opts() -> clap::App<'static, 'static> {
@@ -70,7 +78,7 @@ fn opts() -> clap::App<'static, 'static> {
             clap::Arg::with_name("content")
                 .help("The content to format.")
                 .takes_value(true)
-                .required(true)
+                .required(false)
         )
 }
 
@@ -126,6 +134,15 @@ error_chain! {
     foreign_links {
         Clap(clap::Error);
         Term(term::Error);
+        Io(std::io::Error);
     }
 
+    errors {
+        CouldNotOpenTerminal {
+            description("Could not open terminal the terminal.")
+        }
+        NoContent {
+            description("Did not find content to format.")
+        }
+    }
 }

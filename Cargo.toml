@@ -2,7 +2,7 @@
 name = "termformat"
 version = "0.0.1"
 authors = ["Andrew Hobden <andrew@hoverbear.org>"]
-description = "A simple command line terminal text formatter."
+description = "A simple command line terminal text formatter. Reads from parameter or stdin."
 
 [dependencies]
 clap = "*"
