@@ -1,10 +1,21 @@
 [package]
 name = "termformat"
 version = "0.0.1"
-authors = ["Andrew Hobden <andrew@hoverbear.org>"]
 description = "A simple command line terminal text formatter. Reads from parameter or stdin."
+documentation = "https://docs.rs/crate/termformat/"
+homepage = "https://github.com/hoverbear/termformat"
+readme = "README.md"
+authors = ["Andrew Hobden <andrew@hoverbear.org>"]
+categories = ["command-line-interface"]
+keywords = ["terminal", "formatter"]
+license = "MIT"
+
+[badges]
+github = { repository = "https://github.com/hoverbear/termformat" }
+maintenance = { status = "experimental" }
+travis-ci = { repository = "hoverbear/termformat" }
 
 [dependencies]
-clap = "*"
-term = "*"
-error-chain = "*"
+clap = "2.26.2"
+term = "0.4.6"
+error-chain = "0.11.0"

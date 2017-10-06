@@ -1,0 +1,22 @@
+language: rust
+env:
+  global:
+    - RUST_BACKTRACE=1
+cache: cargo
+
+matrix:
+  include:
+    - rust: nightly
+      os: linux
+    - rust: stable
+      os: linux
+    - rust: nightly
+      os: osx
+    - rust: stable
+      os: osx
+
+before_script:
+  - cargo install rustfmt || true
+script:
+  - cargo fmt -- --write-mode=diff
+  - cargo test --all
