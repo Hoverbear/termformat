@@ -1,5 +1,8 @@
 # termformat
 
+[![Build Status](https://travis-ci.org/Hoverbear/termformat.svg?branch=master)](https://travis-ci.org/Hoverbear/termformat)
+![[Crates.io](https://crates.io/crates/termformat)](https://img.shields.io/crates/v/termformat.svg)
+
 ```
 $ termformat --help
 termformat 0.0.1
