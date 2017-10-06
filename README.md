@@ -1,7 +1,7 @@
 # termformat
 
 [![Build Status](https://travis-ci.org/Hoverbear/termformat.svg?branch=master)](https://travis-ci.org/Hoverbear/termformat)
-![[Crates.io](https://crates.io/crates/termformat)](https://img.shields.io/crates/v/termformat.svg)
+[![Crates.io](https://img.shields.io/crates/v/termformat.svg)](https://crates.io/crates/termformat)
 
 ```
 $ termformat --help

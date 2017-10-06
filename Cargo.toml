@@ -11,7 +11,6 @@ keywords = ["terminal", "formatter"]
 license = "MIT"
 
 [badges]
-github = { repository = "https://github.com/hoverbear/termformat" }
 maintenance = { status = "experimental" }
 travis-ci = { repository = "hoverbear/termformat" }
 
